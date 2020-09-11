@@ -1,6 +1,8 @@
 const express=require("express")
 const router=new express.Router()
 const Task=require('../modeles/task')
+
+//for getting tasks
 router.get('/list',async(req,res)=>
 {
 	try
@@ -14,48 +16,13 @@ router.get('/list',async(req,res)=>
 	}
 
 
-/*	Task.find({}).then((tasks)=>
-	{
-		res.send(tasks)
-	}).catch((e)=>
-	{
-		res.status(500).send()
-	})*/
+
 })
 
-router.get('/tasks/:id',async(req,res)=>
-{
-
-	const _id=req.params.id
-	try
-	{
-		const  task=await Task.findById(_id)
-		if(!task)
-		{
-			return res.status(404).send()
-		}
-		res.send(task)
-	}
-	catch(e)
-	{
-		res.status(500).send()
-	}
-
-	/*Task.findById(_id).then((task)=>
-	{
-		if(!task)
-		{
-			return res.status(404).send()
-		}
-		res.send(task)
-	})*/
-})
+//for adding tasks
 
 router.post('/add',async(req,res)=>
 {
-	/*console.log(req.body) //send data from body in postman raw json data {"varname":"val"} and send post request to this route
-	res.send("testing")*/
-	//const task=new Task(req.body);
 	const name = req.body.name;
 	const desc = req.body.desc;
 	const task = req.body.task;
@@ -84,16 +51,38 @@ router.post('/add',async(req,res)=>
 		})
 	})
 	
-	/*task.save().then(()=>
-	{
-		res.send(task)
-	}).catch((e)=>
-	{
-		console.log(e)
-	})*/
-	//send req from postman body to this route
+	
 })
 
+
+
+router.get('/tasks/:id',async(req,res)=>
+{
+
+	const _id=req.params.id
+	try
+	{
+		const  task=await Task.findById(_id)
+		if(!task)
+		{
+			return res.status(404).send()
+		}
+		res.send(task)
+	}
+	catch(e)
+	{
+		res.status(500).send()
+	}
+
+	/*Task.findById(_id).then((task)=>
+	{
+		if(!task)
+		{
+			return res.status(404).send()
+		}
+		res.send(task)
+	})*/
+})
 
 
 router.patch('/tasks/:id',async(req,res)=>
