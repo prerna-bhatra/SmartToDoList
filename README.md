@@ -1,6 +1,6 @@
 # todolistfinal (final)
 
-this is a todolist app api made using nodejs and mongodb deployed on heroku with link (https://todoboards.herokuapp.com) this app has 2 main end points 1 http://todobi.herokuapp.com-: this is used to get all the added tasks returnsn in json format 2http://todobi.herokuapp.com/add -:this will work on postman to add tasks to add task use post mehtod and values in body { "name":"myname", "task":" taskname", "dur":timeinminutes, "desc":"this is task description" } example
+this is a todolist app api made using nodejs and mongodb deployed on heroku with link (https://todoboards.herokuapp.com) this app has 2 main end points 1 http://todobi.herokuapp.com-: this is used to get all the added tasks returnsn in json format 2http://todobi.herokuapp.com/list -:this will work on postman to add tasks to add task use post mehtod and values in body { "name":"myname", "task":" taskname", "dur":timeinminutes, "desc":"this is task description" } example
 
 { "name":"megha", "task":" task 4", "dur":2, "desc":"this is task 4" }
 
